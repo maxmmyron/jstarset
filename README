@@ -1,0 +1,7 @@
+# jstarset
+
+A Java frontend for the Starset programming langage, written directly in [JVM assembly](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-3.html#jvms-3.1) using [Krakatau](https://github.com/Storyyeller/Krakatau).
+
+## requirements
+- krak2
+- jdk 11+
