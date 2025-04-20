@@ -1,4 +1,4 @@
-.class public super Main
+.class public super expressions/concat-word-expr/can-concat/Main
 .super java/lang/Object
 
 .method public <init> : ()V
@@ -10,27 +10,7 @@
 .end method
 
 .method public static main : ([Ljava/lang/String;)V
-	; stack 3: most we have in stack at one time is a double (two words) and
-	; print stream ref (one word)
-	; locals 2: because we only ever have two locals. 1. implicit this ref,
-	; and 2. the stored Word
 	.code stack 6 locals 2
-		; Init word type. We duplicate reference so we still have a ref after
-		; we invoke init func (which consumes a ref)
-		new datatypes/Word
-		dup
-		invokespecial Method datatypes/Word <init> ()V
-
-		astore_1
-		getstatic Field java/lang/System out Ljava/io/PrintStream;
-
-		; getting field from Word ref consumes ref and leaves stack with a
-		; double and the System.out field.
-		aload_1
-		getfield Field datatypes/Word numVal D
-
-		invokevirtual Method java/io/PrintStream println (D)V
-
 		new expressions/ConcatWordExpr
 		dup
 
