@@ -17,9 +17,9 @@
 	.code stack 6 locals 2
 		; Init word type. We duplicate reference so we still have a ref after
 		; we invoke init func (which consumes a ref)
-		new Word
+		new datatypes/Word
 		dup
-		invokespecial Method Word <init> ()V
+		invokespecial Method datatypes/Word <init> ()V
 
 		astore_1
 		getstatic Field java/lang/System out Ljava/io/PrintStream;
@@ -27,27 +27,27 @@
 		; getting field from Word ref consumes ref and leaves stack with a
 		; double and the System.out field.
 		aload_1
-		getfield Field Word numVal D
+		getfield Field datatypes/Word numVal D
 
 		invokevirtual Method java/io/PrintStream println (D)V
 
-		new ConcatWordExpr
+		new expressions/ConcatWordExpr
 		dup
 
-		new Word
+		new datatypes/Word
 		dup
 		ldc "Hello "
-		invokespecial Method Word <init> (Ljava/lang/String;)V
+		invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
 
-		new Word
+		new datatypes/Word
 		dup
 		ldc "World"
-		invokespecial Method Word <init> (Ljava/lang/String;)V
+		invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
 
-		invokespecial Method ConcatWordExpr <init> (LWord;LWord;)V
+		invokespecial Method expressions/ConcatWordExpr <init> (Ldatatypes/Word;Ldatatypes/Word;)V
 
-		invokevirtual Method ConcatWordExpr evaluate ()LWord;
-		getfield Field Word litVal Ljava/lang/String;
+		invokevirtual Method expressions/ConcatWordExpr evaluate ()Ldatatypes/Word;
+		getfield Field datatypes/Word litVal Ljava/lang/String;
 		astore_1
 
 		getstatic Field java/lang/System out Ljava/io/PrintStream;

@@ -1,4 +1,4 @@
-.class abstract super public Accums
+.class abstract super public util/Accums
 .super java/lang/Object
 .implements java/util/Map
 .signature Ljava/lang/Object;L/java/lang/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;

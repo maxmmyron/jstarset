@@ -1,4 +1,4 @@
-.class public abstract Expr
+.class public abstract expressions/Expr
 .super java/lang/Object
 
 .field public is_ident B

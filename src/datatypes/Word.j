@@ -1,4 +1,4 @@
-.class public super Word
+.class public super datatypes/Word
 .super java/lang/Object
 .field public litVal Ljava/lang/String;
 .field public numVal D
@@ -12,12 +12,12 @@
 		; init litVal with default (null)
 		aload_0
 		aconst_null
-		putfield Field Word litVal Ljava/lang/String;
+		putfield Field datatypes/Word litVal Ljava/lang/String;
 
 		; init numVal with default NaN
 		aload_0
 		ldc2_w +NaN			; load NaN into op stack
-		putfield Field Word numVal D
+		putfield Field datatypes/Word numVal D
 		return
 	.end code
 .end method
@@ -31,12 +31,12 @@
 		; init litVal with arg
 		aload_0
 		aload_1
-		putfield Field Word litVal Ljava/lang/String;
+		putfield Field datatypes/Word litVal Ljava/lang/String;
 
 		; init numVal with default NaN
 		aload_0
 		ldc2_w +NaN			; load NaN into op stack
-		putfield Field Word numVal D
+		putfield Field datatypes/Word numVal D
 		return
 	.end code
 .end method

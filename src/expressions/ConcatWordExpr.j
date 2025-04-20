@@ -1,4 +1,4 @@
-.class public super ConcatWordExpr
+.class public super expressions/ConcatWordExpr
 .super expressions/WordExpr
 
 .field public w1 Ldatatypes/Word;
@@ -11,11 +11,11 @@
 
 		aload_0
 		aload_1
-		putfield Field ConcatWordExpr w1 Ldatatypes/Word;
+		putfield Field expressions/ConcatWordExpr w1 Ldatatypes/Word;
 
 		aload_0
 		aload_2
-		putfield Field ConcatWordExpr w2 Ldatatypes/Word;
+		putfield Field expressions/ConcatWordExpr w2 Ldatatypes/Word;
 
 		return
 	.end code
@@ -26,7 +26,7 @@
 		new datatypes/Word
 		dup
 		dup
-		invokespecial Method Word <init> ()V
+		invokespecial Method datatypes/Word <init> ()V
 
 		aload_0
 		getfield Field expressions/ConcatWordExpr w1 Ldatatypes/Word;

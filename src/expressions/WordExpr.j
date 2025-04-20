@@ -1,4 +1,4 @@
-.class public abstract WordExpr
+.class public abstract expressions/WordExpr
 .super expressions/Expr
 
 .method public <init> : ()V

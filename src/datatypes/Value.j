@@ -1,4 +1,4 @@
-.class public abstract super Value
+.class public abstract super datatypes/Value
 .super java/lang/Object
 
 .method public <init> : ()V
