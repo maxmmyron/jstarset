@@ -1,4 +1,4 @@
-.class public super expressions/concat-word-expr/can-concat/Main
+.class public super expressions/concat-word-expr/CanConcat
 .super java/lang/Object
 
 .method public <init> : ()V

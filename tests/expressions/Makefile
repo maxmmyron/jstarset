@@ -5,4 +5,5 @@ include ../MAKE_HEAD
 
 test:
 	echo "ConcatWordExpr Tests:"
-	@$(call test_return_expected,expressions/concat-word-expr/can-concat/Main,"Hello World")
+	@$(call test_return_expected,expressions/concat-word-expr/CanConcat,"Hello World")
+	@$(call test_return_expected,expressions/bin-set-expr/CanUnion,"")
