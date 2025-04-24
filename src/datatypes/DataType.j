@@ -1,4 +1,4 @@
-.class final super enum datatypes/DataType
+.class final public super enum datatypes/DataType
 .super java/lang/Enum
 .field public static final enum WORD_TYPE Ldatatypes/DataType;
 .field public static final enum SET_TYPE Ldatatypes/DataType;
