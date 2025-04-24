@@ -64,4 +64,6 @@
 	.end code
 .end method
 
+; TODO: hashCode()
+
 .end class
