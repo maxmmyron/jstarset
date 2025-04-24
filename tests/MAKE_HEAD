@@ -7,9 +7,9 @@ define test_returns_nil
   OUT=$$(java -cp $(BJAR):$(TJAR) $(1))
 
   if [$(OUT) = ""] ; then
-    @echo "$(1) [PASSED]"
+    echo "$(1) [PASSED]"
   else
-    @echo "$(1) [FAILED]"
+    echo "$(1) [FAILED]"
   fi
 endef
 
@@ -17,8 +17,8 @@ define test_return_expected
  OUT=$$(java -cp $(BJAR):$(TJAR) $(1))
 
  if [$(OUT) = $(2)] ; then
-    @echo "$(1) [PASSED]"
+    echo "$(1) [PASSED]"
   else
-    @echo "$(1) [FAILED]"
+    echo "$(1) [FAILED]"
   fi
 endef

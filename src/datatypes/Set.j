@@ -1,26 +1,23 @@
-.class public datatypes/Set
+.class public super datatypes/Set
 .super java/util/HashSet
 .signature Ljava/util/HashSet<Ldatatypes/Word;>;
 
 .field public ioSeparator C
-.field public concatSeparator L/java/lang/String;
+.field public concatSeparator Ljava/lang/String;
 .field public phony Z
 
-; constructor
 .method public <init> : ()V
 	.code stack 1 locals 1
-
 		aload_0
-		invokespecial Method java/lang/HashSet <init> ()V
+		invokespecial Method java/util/HashSet <init> ()V
 		return
-
 	.end code
 .end method
 
 .method public <init> : (Lexpressions/WordExprList;Lutil/Environment;)V
-	.code stack 3 locals 4
+	.code stack 3 locals 6
 		aload_0
-		invokespecial Method java/lang/HashSet <init> ()V
+		invokespecial Method java/util/HashSet <init> ()V
 
 		aload_1
 		invokevirtual Method expressions/WordExprList size ()I
@@ -36,11 +33,12 @@ LLOOP:				; loads a new Word into the Set.
 		aload_1
 		iload 4
 							; get the expression, and evaluate it (which returns a Word)
-		invokevirtual Method expressions/ExprList get (I)Lexpressions/Expr;
-		invokevirtual Method expressions/WordExpr evaluate ()Lexpressions/Word;
+		invokevirtual Method expressions/WordExprList get (I)Ljava/lang/Object;
+		checkcast expressions/WordExpr
+		invokevirtual Method expressions/WordExpr evaluate ()Ldatatypes/Word;
 
 							; add to set and discard boolean result
-		invokevirtual Method datatypes/Set add (Lexpressions/Word;)Z
+		invokevirtual Method datatypes/Set add (Ljava/lang/Object;)Z
 		pop
 
 							; i++
