@@ -56,4 +56,12 @@
 	.end code
 .end method
 
+.method public toString : ()Ljava/lang/String;
+	.code stack 2 locals 1
+		aload_0
+		getfield Field datatypes/Word litVal Ljava/lang/String;
+		areturn
+	.end code
+.end method
+
 .end class
