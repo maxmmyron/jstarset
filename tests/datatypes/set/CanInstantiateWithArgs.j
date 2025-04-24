@@ -1,4 +1,4 @@
-.class public super datatypes/set/can-instantiate-nonempty/Main
+.class public super datatypes/set/CanInstantiateWithArgs
 .super java/lang/Object
 
 .method public <init> : ()V

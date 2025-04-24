@@ -3,22 +3,35 @@
 BJAR := ../../build.jar
 TJAR := ../../tests.jar
 
-define test_returns_nil
-  OUT=$$(java -cp $(BJAR):$(TJAR) $(1))
+NC=\033[0m       # Text Reset
+GREEN=\033[0;32m # Green
+RED=\033[0;31m   # Red
 
-  if [$(OUT) = ""] ; then
-    echo "$(1) [PASSED]"
+define test_returns_nil
+  OUT=$$(java -cp $(BJAR):$(TJAR) $(1) 2>&1)
+  if [ $$? -ne 0 ] ; then
+    echo "$(1) $(RED)[FAILED]$(NC) (Exited with non-zero status, expected zero)"
+    echo "$(RED)Error Trace$(NC): \n$$OUT\n"
   else
-    echo "$(1) [FAILED]"
+    if [ "$$OUT" = "" ] ; then
+      echo "$(1) $(GREEN)[PASSED]$(NC)"
+    else
+      echo "$(1) $(RED)[FAILED]$(NC) (Returned non-nil $$OUT)"
+    fi
   fi
 endef
 
-define test_return_expected
- OUT=$$(java -cp $(BJAR):$(TJAR) $(1))
-
- if [$(OUT) = $(2)] ; then
-    echo "$(1) [PASSED]"
+define test_returns_lit
+  OUT=$$(java -cp $(BJAR):$(TJAR) $(1) 2>&1)
+  if [ $$? -ne 0 ] ; then
+    echo "$(1) $(RED)[FAILED]$(NC) (Exited with non-zero status, expected zero)"
+    echo "$(RED)Error Trace$(NC): \n$$OUT\n"
   else
-    echo "$(1) [FAILED]"
+    [ "$$OUT" = $(2) ] # returns 0 if outputs are equal
+    if [ $$? -eq 0 ] ; then
+      echo "$(1) $(GREEN)[PASSED]$(NC)"
+    else
+      echo "$(1) $(RED)[FAILED]$(NC) (Returned $$OUT, Expected $(2))"
+    fi
   fi
 endef
