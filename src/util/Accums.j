@@ -1,7 +1,7 @@
 .class abstract super public util/Accums
 .super java/lang/Object
 .implements java/util/Map
-.signature Ljava/lang/Object;L/java/lang/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;
+.signature Ljava/lang/Object;Ljava/lang/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;
 
 .method public <init> : ()V
 	.code stack 1 locals 1
