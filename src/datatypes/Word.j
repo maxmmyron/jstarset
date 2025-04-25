@@ -42,16 +42,33 @@
 .end method
 
 ; compares string values between
-.method public equals : (Ldatatypes/Word;)Z
+.method public equals : (Ljava/lang/Object;)Z
 	.code stack 2 locals 2
+		aload_0
 		aload_1
+		if_acmpeq LTRUE
+
+		aload_1
+		instanceof datatypes/Word
+		ifeq LFALSE ; If null or not a Word, they are not equal
+
+		aload_1
+		checkcast datatypes/Word
 		getfield Field datatypes/Word litVal Ljava/lang/String;
 
 		aload_0
 		getfield Field datatypes/Word litVal Ljava/lang/String;
 
-		invokevirtual Method java/lang/String equals (Ljava/lang/String;)Z
+		invokevirtual Method java/lang/String equals (Ljava/lang/Object;)Z
 
+		ireturn
+
+LTRUE:
+		iconst_1
+		ireturn
+
+LFALSE:
+		iconst_0
 		ireturn
 	.end code
 .end method
@@ -64,6 +81,13 @@
 	.end code
 .end method
 
-; TODO: hashCode()
+.method public hashCode : ()I
+	.code stack 1 locals 1
+		aload_0
+		getfield Field datatypes/Word litVal Ljava/lang/String;
+		invokevirtual Method java/lang/Object hashCode ()I
+		ireturn
+	.end code
+.end method
 
 .end class
