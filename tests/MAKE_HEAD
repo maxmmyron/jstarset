@@ -7,6 +7,7 @@ NC=\033[0m       # Text Reset
 GREEN=\033[0;32m # Green
 RED=\033[0;31m   # Red
 
+# Runs a provided test and print pass state if the test returned nothing
 define test_returns_nil
   OUT=$$(java -cp $(BJAR):$(TJAR) $(1) 2>&1)
   if [ $$? -ne 0 ] ; then
@@ -21,6 +22,7 @@ define test_returns_nil
   fi
 endef
 
+# Runs a provided test and print pass state if the test returns literal string provided
 define test_returns_lit
   OUT=$$(java -cp $(BJAR):$(TJAR) $(1) 2>&1)
   if [ $$? -ne 0 ] ; then

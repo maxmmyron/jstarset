@@ -21,7 +21,7 @@
     ldc "ABC"
 		invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
 
-    invokevirtual Method datatypes/Word equals (Ldatatypes/Word;)Z
+    invokevirtual Method datatypes/Word equals (Ljava/lang/Object;)Z
     istore_2
 
     getstatic Field java/lang/System out Ljava/io/PrintStream;
