@@ -42,15 +42,12 @@
 			default :	LDEFAULT
 
 LUNION:
-		getstatic Field java/lang/System out Ljava/io/PrintStream;
-		ldc "union"
-		invokevirtual Method java/io/PrintStream println (Ljava/lang/String;)V
 		; add all from left
 		dup
 		aload_0
 		getfield expressions/BinSetExpr left Lexpressions/SetExpr;
 		invokevirtual Method expressions/SetExpr evaluate ()Ldatatypes/Set;
-		invokevirtual Method datatypes/Set addAll (Ljava/lang/Object;)Z
+		invokevirtual Method datatypes/Set addAll (Ljava/util/Collection;)Z
 		pop
 
 		; add all from right
@@ -58,21 +55,18 @@ LUNION:
 		aload_0
 		getfield expressions/BinSetExpr right Lexpressions/SetExpr;
 		invokevirtual Method expressions/SetExpr evaluate ()Ldatatypes/Set;
-		invokevirtual Method datatypes/Set addAll (Ljava/lang/Object;)Z
+		invokevirtual Method datatypes/Set addAll (Ljava/util/Collection;)Z
 		pop
 
 		goto LRET
 
 LINTERSECTION:
-		getstatic Field java/lang/System out Ljava/io/PrintStream;
-		ldc "intersection"
-		invokevirtual Method java/io/PrintStream println (Ljava/lang/String;)V
 		; add all from left
 		dup
 		aload_0
 		getfield expressions/BinSetExpr left Lexpressions/SetExpr;
 		invokevirtual Method expressions/SetExpr evaluate ()Ldatatypes/Set;
-		invokevirtual Method datatypes/Set addAll (Ljava/lang/Object;)Z
+		invokevirtual Method datatypes/Set addAll (Ljava/util/Collection;)Z
 		pop
 
 		; retain those also in right
@@ -80,21 +74,18 @@ LINTERSECTION:
 		aload_0
 		getfield expressions/BinSetExpr right Lexpressions/SetExpr;
 		invokevirtual Method expressions/SetExpr evaluate ()Ldatatypes/Set;
-		invokevirtual Method datatypes/Set retainAll (Ljava/lang/Object;)Z
+		invokevirtual Method datatypes/Set retainAll (Ljava/util/Collection;)Z
 		pop
 
 		goto LRET
 
 LDIFFERENCE:
-		getstatic Field java/lang/System out Ljava/io/PrintStream;
-		ldc "diff"
-		invokevirtual Method java/io/PrintStream println (Ljava/lang/String;)V
 		; add all from left
 		dup
 		aload_0
 		getfield expressions/BinSetExpr left Lexpressions/SetExpr;
 		invokevirtual Method expressions/SetExpr evaluate ()Ldatatypes/Set;
-		invokevirtual Method datatypes/Set addAll (Ljava/lang/Object;)Z
+		invokevirtual Method datatypes/Set addAll (Ljava/util/Collection;)Z
 		pop
 
 		; remove all in right
@@ -102,15 +93,12 @@ LDIFFERENCE:
 		aload_0
 		getfield expressions/BinSetExpr right Lexpressions/SetExpr;
 		invokevirtual Method expressions/SetExpr evaluate ()Ldatatypes/Set;
-		invokevirtual Method datatypes/Set removeAll (Ljava/lang/Object;)Z
+		invokevirtual Method datatypes/Set removeAll (Ljava/util/Collection;)Z
 		pop
 
 		goto LRET
 
 LDEFAULT:
-		getstatic Field java/lang/System out Ljava/io/PrintStream;
-		ldc "default"
-		invokevirtual Method java/io/PrintStream println (Ljava/lang/String;)V
 		iconst_0
 		invokestatic Method java/lang/System exit (I)V
 

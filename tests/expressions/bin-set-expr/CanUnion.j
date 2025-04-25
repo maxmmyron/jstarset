@@ -30,28 +30,28 @@
 
     ; add "A"
     dup
-    new datatypes/Word
+    new expressions/LiteralWordExpr
     dup
     ldc "A"
-    invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
+    invokespecial Method expressions/LiteralWordExpr <init> (Ljava/lang/String;)V
     invokevirtual Method expressions/WordExprList add (Ljava/lang/Object;)Z
     pop
 
     ; add "B"
     dup
-    new datatypes/Word
+    new expressions/LiteralWordExpr
     dup
     ldc "B"
-    invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
+    invokespecial Method expressions/LiteralWordExpr <init> (Ljava/lang/String;)V
     invokevirtual Method expressions/WordExprList add (Ljava/lang/Object;)Z
     pop
 
     ; add "C"
     dup
-    new datatypes/Word
+    new expressions/LiteralWordExpr
     dup
     ldc "C"
-    invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
+    invokespecial Method expressions/LiteralWordExpr <init> (Ljava/lang/String;)V
     invokevirtual Method expressions/WordExprList add (Ljava/lang/Object;)Z
     pop
 
@@ -68,32 +68,30 @@
     dup
     invokespecial Method expressions/WordExprList <init> ()V
 
-    ; TODO: CHANGE TO LITERALWORDEXPR!!!
-
     ; add "C"
     dup
-    new datatypes/Word
+    new expressions/LiteralWordExpr
     dup
     ldc "C"
-    invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
+    invokespecial Method expressions/LiteralWordExpr <init> (Ljava/lang/String;)V
     invokevirtual Method expressions/WordExprList add (Ljava/lang/Object;)Z
     pop
 
     ; add "D"
     dup
-    new datatypes/Word
+    new expressions/LiteralWordExpr
     dup
     ldc "D"
-    invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
+    invokespecial Method expressions/LiteralWordExpr <init> (Ljava/lang/String;)V
     invokevirtual Method expressions/WordExprList add (Ljava/lang/Object;)Z
     pop
 
     ; add "E"
     dup
-    new datatypes/Word
+    new expressions/LiteralWordExpr
     dup
     ldc "E"
-    invokespecial Method datatypes/Word <init> (Ljava/lang/String;)V
+    invokespecial Method expressions/LiteralWordExpr <init> (Ljava/lang/String;)V
     invokevirtual Method expressions/WordExprList add (Ljava/lang/Object;)Z
     pop
 
@@ -103,17 +101,15 @@
     ; stack is now <top>: WordListSetExpr WordListSetExpr SetOp BinSetExpr ...
     invokespecial Method expressions/BinSetExpr <init> (Ldatatypes/SetOp;Lexpressions/SetExpr;Lexpressions/SetExpr;)V
 
-    getstatic Field java/lang/System out Ljava/io/PrintStream;
-		ldc "abc"
-		invokevirtual Method java/io/PrintStream println (Ljava/lang/String;)V
-
     invokevirtual Method expressions/BinSetExpr evaluate ()Ldatatypes/Set;
-    astore_2
+
+    ; debug: printing size
+    invokevirtual Method datatypes/Set size ()I
+    istore_2
 
     getstatic Field java/lang/System out Ljava/io/PrintStream;
-		aload_2
-    invokevirtual Method datatypes/Set toString ()Ljava/lang/String;
-		invokevirtual Method java/io/PrintStream println (Ljava/lang/String;)V
+		iload_2
+		invokevirtual Method java/io/PrintStream println (I)V
 
 		return
 	.end code

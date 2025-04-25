@@ -7,4 +7,4 @@ test:
 	echo "ConcatWordExpr Tests:"
 	@$(call test_returns_lit,expressions/concat-word-expr/CanConcat,"Hello World")
 	echo "BinSetExpr Tests:"
-	@$(call test_returns_lit,expressions/bin-set-expr/CanUnion,"")
+	@$(call test_returns_lit,expressions/bin-set-expr/CanUnion,"5")

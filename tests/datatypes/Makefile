@@ -10,6 +10,7 @@ test:
 	@$(call test_returns_nil,datatypes/word/HasLitValue)
 	@$(call test_returns_nil,datatypes/word/HasNumValue)
 	@$(call test_returns_lit,datatypes/word/CanStringify,"ABC")
+	@$(call test_returns_nil,datatypes/word/CanEqual)
 
 	echo "Set Tests:"
 	@$(call test_returns_nil,datatypes/set/CanInstantiateNoArgs)
